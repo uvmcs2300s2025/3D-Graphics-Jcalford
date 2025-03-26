@@ -65,6 +65,9 @@ void Engine::initShapes() {
     make_unique<Cube>(cubeShader, vec3(-0.5f, 0.0f, 0.0f),
                       vec3(0.5f, 0.5f, 0.5f), vector<color>({red, green, blue, yellow, magenta, cyan, white, black}));
   // TODO: initialize cubeRight
+  cubeRight =
+    make_unique<Cube>(cubeShader, vec3(0.5f, 0.0f, 0.0f),
+                      vec3(0.5f, 0.5f, 0.5f), vector<color>({red, green, blue, yellow, magenta, cyan, white, black}));
 }
 
 void Engine::initMatrices() {
@@ -104,8 +107,25 @@ void Engine::processInput() {
     // To make the cube appear to tilt up, it needs to rotate around its center point in relation to the x-axis
     cubeLeft->rotateX(-0.01f);
   }
+  if (keys[GLFW_KEY_DOWN]) {
+    cubeLeft->rotateX(0.01f);
+  }
+  if (keys[GLFW_KEY_LEFT]) {
+    cubeLeft->rotateY(0.01f);
+  }
+  if (keys[GLFW_KEY_RIGHT]) {
+    cubeLeft->rotateY(-0.01f);
+  }
+  if (keys[GLFW_KEY_COMMA]) {
+    cubeLeft->rotateZ(0.01f);
+  }
+  if (keys[GLFW_KEY_PERIOD]) {
+    cubeLeft->rotateZ(-0.01f);
+  }
+
 
   // TODO: Rotate the second cube to mirror the first
+  if (keys)
 }
 
 void Engine::update() {
