@@ -73,10 +73,10 @@ void Cube::initVectors() {
             // TODO: complete this method by adding the four vertices that make the back side of the cube
             //       color them with colors[4] through colors[7]
             // Back face:
-            // Bottom left
-            // Bottom right
-            // Top right
-            // Top left
+            -0.5f, -0.5f, -0.5f, colors[4].red, colors[4].green, colors[4].blue, // Bottom left
+             0.5f, -0.5f, -0.5f, colors[5].red, colors[5].green, colors[5].blue, // Bottom right
+             0.5f,  0.5f, -0.5f, colors[6].red, colors[6].green, colors[6].blue, // Top right
+            -0.5f,  0.5f, -0.5f, colors[7].red, colors[7].green, colors[7].blue  // Top left
     });
 
     this->indices.insert(this->indices.end(), {
@@ -88,10 +88,20 @@ void Cube::initVectors() {
             1, 2, 3,
             // TODO: complete the other five faces
             // Right face
+            0, 2, 5,
+            0, 5, 6,
             // Back face
+            4, 5, 6,
+            4, 6, 7,
             // Left face
+            1, 3, 4,
+            1, 4, 7,
             // Bottom face
+            2, 3, 5,
+            3, 4, 5,
             // Top face
+            0, 1, 6,
+            1, 6, 7
     });
 }
 

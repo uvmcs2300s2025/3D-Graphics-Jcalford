@@ -100,9 +100,7 @@ void Engine::processInput() {
   if (keys[GLFW_KEY_ESCAPE])
     glfwSetWindowShouldClose(window, true);
 
-
-  // TODO: Rotate the cube with keys
-  // Hint: keys are GLFW_KEY_UP, GLFW_KEY_DOWN, GLFW_KEY_LEFT, GLFW_KEY_RIGHT, GLFW_KEY_COMMA, and GLFW_KEY_PERIOD
+  // Rotate the cube with keys
   if (keys[GLFW_KEY_UP]) {
     // To make the cube appear to tilt up, it needs to rotate around its center point in relation to the x-axis
     cubeLeft->rotateX(-0.01f);
@@ -123,9 +121,25 @@ void Engine::processInput() {
     cubeLeft->rotateZ(-0.01f);
   }
 
-
-  // TODO: Rotate the second cube to mirror the first
-  if (keys)
+  // Rotate the second cube to mirror the first
+  if (keys[GLFW_KEY_UP]) {
+    cubeRight->rotateX(0.01f);  // Opposite of cubeLeft
+  }
+  if (keys[GLFW_KEY_DOWN]) {
+    cubeRight->rotateX(-0.01f);  // Opposite of cubeLeft
+  }
+  if (keys[GLFW_KEY_LEFT]) {
+    cubeRight->rotateY(-0.01f);  // Opposite of cubeLeft
+  }
+  if (keys[GLFW_KEY_RIGHT]) {
+    cubeRight->rotateY(0.01f);  // Opposite of cubeLeft
+  }
+  if (keys[GLFW_KEY_COMMA]) {
+    cubeRight->rotateZ(-0.01f);  // Opposite of cubeLeft
+  }
+  if (keys[GLFW_KEY_PERIOD]) {
+    cubeRight->rotateZ(0.01f);  // Opposite of cubeLeft
+  }
 }
 
 void Engine::update() {
